@@ -1,0 +1,19 @@
+# See https://github.com/github/safe-settings/tree/main-enterprise/docs/sample-settings for example settings
+# and https://docs.github.com/en/rest/reference/repos#update-a-repository for
+# the GitHub REST API definitions
+
+suborgrepos:
+  - "*"
+
+rulesets:
+  - name: Prevent destruction of the default branch
+    target: branch
+    enforcement: active
+    conditions:
+      ref_name:
+        include:
+          - ~DEFAULT_BRANCH
+        exclude: []
+    rules:
+      - type: deletion
+      - type: non_fast_forward
