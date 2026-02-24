@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       # Version/tag of `github/safe-settings` repository to use:
-      SAFE_SETTINGS_VERSION: 2.1.17
+      SAFE_SETTINGS_VERSION: ff7a65655d33006b9820479df0a9e1057a8927e4 # 2.1.17
 
       # Path on GHA runner box where safe-settings code downloaded to:
       SAFE_SETTINGS_CODE_DIR: .safe-settings-code
@@ -34,11 +34,6 @@ jobs:
           ref: ${{ env.SAFE_SETTINGS_VERSION }}
           path: ${{ env.SAFE_SETTINGS_CODE_DIR }}
           persist-credentials: false
-      - name: Debug on runner (When re-run with "Enable debug logging" checked)
-        if: runner.debug
-        uses: mxschmitt/action-tmate@c0afd6f790e3a5564914980036ebf83216678101 # v3.23
-        with:
-          detached: true
       - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           cache: npm
