@@ -1,4 +1,4 @@
-name: Apply Safe Settings
+name: Apply Safe Settings (Library)
 on:
   workflow_call:
     inputs:
@@ -36,6 +36,19 @@ jobs:
       # Path on GHA runner box where safe-settings code downloaded to:
       SAFE_SETTINGS_CODE_DIR: .safe-settings-code
     steps:
+      - uses: qoomon/actions--context@e12e182be797e3476990faf801dd1b87f107f91c # v5.0.1
+      - name: Job information
+        run: |
+          msg=""
+          msg+="APP_ID is: $APP_ID"$'\n'
+          msg+="PRIVATE_KEY is " && [ -z "$PRIVATE_KEY" ] && msg+="empty"$'\n' || msg+="not empty"$'\n'
+          msg+="Run environment is: $GITHUB_ENVIRONMENT"
+          msg=${msg//$'\n'/'%0A'}
+
+          echo "::notice::$msg"
+        env:
+          APP_ID: ${{ vars.SAFE_SETTINGS_APP_ID }}
+          PRIVATE_KEY: ${{ secrets.SAFE_SETTINGS_PRIVATE_KEY }}
       # Self-checkout to access deployment configuration
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
