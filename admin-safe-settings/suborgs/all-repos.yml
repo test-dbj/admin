@@ -14,11 +14,11 @@ environments:
     wait_timer: 0
     variables:
       - name: SAFE_SETTINGS_APP_ID
-        value: 2781473
+        value: '2781473'
   - name: test
     variables:
       - name: SAFE_SETTINGS_APP_ID
-        value: 2798053
+        value: '2798053'
 
 rulesets:
   - name: Prevent destruction of the default branch
