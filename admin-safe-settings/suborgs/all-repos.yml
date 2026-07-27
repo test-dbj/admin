@@ -6,13 +6,19 @@ suborgrepos:
 
 environments:
   - name: production
-    wait_timer: 0
     deployment_branch_policy:
       protected_branches: false
       custom_branch_policies:
         - names: [main]
           type: branch
+    wait_timer: 0
+    variables:
+      - name: SAFE_SETTINGS_APP_ID
+        value: 2781473
   - name: test
+    variables:
+      - name: SAFE_SETTINGS_APP_ID
+        value: 2798053
 
 rulesets:
   - name: Prevent destruction of the default branch
