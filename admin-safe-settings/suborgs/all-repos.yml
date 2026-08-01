@@ -65,7 +65,7 @@ rulesets:
       # Renovate[bot]
       - actor_id: 2740
         actor_type: Integration
-        bypass_mode: pull_request
+        bypass_mode: exempt
     conditions:
       ref_name:
         include:
