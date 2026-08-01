@@ -1,12 +1,10 @@
 {
-  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  enabledManagers: [
-    'github-actions',
-    'pre-commit',
-  ],
-  extends: [
-    "github>saltstack-formulas/.github",
-    "github>saltstack-formulas/.github:pre-commit",
-    "github>saltstack-formulas/.github:weekly",
-  ],
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"github>techneg-it/.github",
+		"github>techneg-it/.github:github-actions",
+		"github>techneg-it/.github:pre-commit",
+		"github>techneg-it/.github:weekly",
+		":automergeStableNonMajor"
+	]
 }
